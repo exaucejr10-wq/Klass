@@ -1,35 +1,38 @@
-﻿public class Utrustning
+﻿namespace klassbiblotek
 {
-    public int Id { get; }
-    public string Namn { get; }
-    public bool ArUtlanad { get; private set; }
-
-    public Utrustning(int id, string namn)
+    public class Utrustning
     {
-        Id = id;
-        Namn = namn;
-        ArUtlanad = false;
-    }
+        public int Id { get; }
+        public string Namn { get; }
+        public bool ArUtlanad { get; private set; }
 
-    public bool Lana()
-    {
-        if (ArUtlanad)
+        public Utrustning(int id, string namn)
         {
-            return false;
+            Id = id;
+            Namn = namn;
+            ArUtlanad = false;
         }
 
-        ArUtlanad = true;
-        return true;
-    }
-
-    public bool Aterlamna()
-    {
-        if (!ArUtlanad)
+        public bool Lana()
         {
-            return false;
+            if (ArUtlanad)
+            {
+                return false;
+            }
+
+            ArUtlanad = true;
+            return true;
         }
 
-        ArUtlanad = false;
-        return true;
+        public bool Aterlamna()
+        {
+            if (!ArUtlanad)
+            {
+                return false;
+            }
+
+            ArUtlanad = false;
+            return true;
+        }
     }
 }
